@@ -205,7 +205,7 @@
                   type: 'success'
                 });
                 this.$router.push({
-                  path: '/homeIndex'
+                  path: '/'
                 })
               }
             } else {
@@ -235,7 +235,6 @@
                 message: '注册成功，请登录',
                 type: 'success'
               });
-
             } else {
               console.log('error submit!!');
               return false;

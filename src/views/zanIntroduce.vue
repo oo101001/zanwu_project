@@ -68,7 +68,11 @@
     width: 1220px;
     min-height: 260px;
     margin: 0 auto;
+    font-family: "Microsoft YaHei"
+  }
 
+  .bannerTr:first-child {
+    margin-top: 30px;
   }
 
   .bannerTr {
@@ -86,12 +90,12 @@
 
   .listright h3 {
     font-weight: 800;
-    font-size: 44px;
+    font-size: 31px;
   }
 
   .listLeft h3 {
     font-weight: 800;
-    font-size: 44px;
+    font-size: 31px;
   }
 
   .messageText {
@@ -100,9 +104,10 @@
     font-size: 18px;
     color: #000000;
   }
-.messageText span{
-  color: red;
-}
+
+  .messageText span {
+    color: red;
+  }
 
   .image img {
     display: block;

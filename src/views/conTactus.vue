@@ -36,7 +36,7 @@
       </div>
     </div>
     <!-- 地图 -->
-    <el-dialog width="1276px" title="杭州赞物科技有限公司" :visible.sync="dialogTableVisibles">
+    <el-dialog width="830px" title="杭州赞物科技有限公司" :visible.sync="dialogTableVisibles">
       <div class="address">
         地址：浙江省杭州市萧山区宁围街道望京大厦b座
       </div>
@@ -130,6 +130,7 @@
     width: 1220px;
     height: 400px;
     margin: 0 auto;
+    margin-top: 30px;
   }
 
   .mapwidth {
@@ -220,6 +221,7 @@
     display: block;
     width: 1220px;
     height: 191px;
+    margin-bottom: 30px;
   }
 
   .mapDaohang {
@@ -255,9 +257,10 @@
   }
 
   .Map {
+    margin-top: 15px;
     z-index: 0;
     height: 600px;
-    width: 1254px;
+    width: 800px;
   }
 
   .anchorBL {

@@ -16,15 +16,13 @@
                 <div class="address-form">
                   <div class="module-form-row">
                     <div class="form-item-v3">
-                      <i>收货人姓名</i>
-                      <input type="text" class="js-verify" v-model="receive.name">
+                      <input type="text" class="js-verify" placeholder="收货人姓名"  v-model="receive.name">
                       <div class="verify-error"></div>
                     </div>
                   </div>
                   <div class="module-form-row">
                     <div class="form-item-v3" :class="{'form-invalid-item':phoneError}">
-                      <i>手机号</i>
-                      <input type="text" class="js-verify" v-model="receive.phone" @blur="inspectPhone">
+                      <input type="text" class="js-verify" placeholder="手机号" v-model="receive.phone" @blur="inspectPhone">
                       <div class="verify-error"></div>
                     </div>
                   </div>
@@ -66,10 +64,10 @@
                       <div class="verify-error"></div>
                     </div>
                   </div>
-                  <div class="module-form-row fn-clear" @click="chooseDefault">
+               <!--   <div class="module-form-row fn-clear" @click="chooseDefault">
                     <input type="checkbox" class="hide">
                     <span class="blue-checkbox " :class="{'blue-checkbox-on': receive.default}" ></span>设为默认
-                  </div>
+                  </div> -->
                   <div class="dialog-blue-btn big-main-btn  js-verify-address" :class="{'disabled-btn':!right}" @click="sumbitReceive">
                     <a>保存</a>
                   </div>
@@ -179,10 +177,10 @@
           }
         },
         //选中状态
-        chooseDefault () {
-          this.receive.default = !this.receive.default
-          this.receive.checked = !this.receive.checked
-        },
+        // chooseDefault () {
+        //   this.receive.default = !this.receive.default
+        //   this.receive.checked = !this.receive.checked
+        // },
         inspectReceive () {
           if(this.receive.name&&this.receive.phone.length==11&&this.receive.province&&this.receive.city&&this.receive.county&&this.receive.add){
             this.right = true

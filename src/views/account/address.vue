@@ -19,17 +19,20 @@
                 <div class="operation fn-right">
                   <div class="operation-cell">
                     <a class="gray-edit-btn js-edit-address" @click="editReceive(receive,index)">修改</a>
-                    <span class="red-del-btn js-del-address"> <a>删除</a><em>删除</em> </span>
+                    <span class="red-del-btn js-del-address" @click="deletes(receive,index)"> <a>删除</a><em>删除</em> </span>
                   </div>
                 </div>
                 <div class="default fn-right">
-                  <span v-if="receive.default">（默认地址）</span>
-                  <a v-else @click="checkDefaultHandle(receive)">设为默认</a>
+            <!--     <span v-if="receive.default">（默认地址）</span>
+                  <span v-else @click="checkDefaultHandle(receive)">设为默认</span> -->
                 </div>
                 <div class="telephone fn-right">{{receive.phone}}</div>
               </div>
             </div>
-            <div class="address-form clear" v-else>
+            <div v-else  class="address-forms" style="text-align:center;">
+              暂无地址
+              </div>
+          <!--  <div class="address-form clear" v-else>
               <div class="module-form-row">
                 <div class="form-item-v3">
                   <i>收货人姓名</i>
@@ -102,7 +105,7 @@
               <div class="dialog-blue-btn big-main-btn disabled-btn js-verify-address">
                 <a>保存</a>
               </div>
-            </div>
+            </div> -->
           </div>
         </div>
       </div>
@@ -122,29 +125,33 @@
       }
     },
     created() {
-      this.$store.state.receiveInfo.forEach((receive, index) => {
-        if (receive.default) {
-          receive.checked = true
-          this.$store.state.receiveInfo.unshift(this.$store.state.receiveInfo.splice(index, 1)[0])
-        } else {
-          receive.checked = false
-        }
-      })
+      // this.$store.state.receiveInfo.forEach((receive, index) => {
+      //   if (receive.default) {
+      //     receive.checked = true
+      //     this.$store.state.receiveInfo.unshift(this.$store.state.receiveInfo.splice(index, 1)[0])
+      //   } else {
+      //     receive.checked = false
+      //   }
+      // })
       this.receiveInfo = this.$store.state.receiveInfo
     },
     components: {
       addressPop,
     },
     methods: {
-      checkDefaultHandle(data) {
-        this.$store.commit('checkDefault', data)
-      },
+      // checkDefaultHandle(data) {
+
+      //   console.log( this.$store.commit('checkDefault', data))
+      // },
       addReceive() {
         this.oldReceive = null
         this.popShow = true
       },
       closePop() {
         this.popShow = false
+      },
+      deletes(receive,index) {
+           this.receiveInfo.splice(index, 1);
       },
       editReceive(data, index) {
         this.oldReceive = data
@@ -516,5 +523,9 @@
     height: 100%;
     line-height: 75px;
     text-align: center;
+  }
+  .address-forms{
+    height: 80px;
+    line-height: 80px;
   }
 </style>

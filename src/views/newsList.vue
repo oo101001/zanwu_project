@@ -91,10 +91,9 @@
     display: flex;
     justify-content: flex-start;
     border-radius: 12px;
-    margin-bottom: 40px;
-
+    margin-bottom: 30px;
+    margin-top: 20px;
   }
-
   .iamgeleft {
     width: 300px;
     height: 200px;

@@ -2,12 +2,12 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import "../assets/css/reset.css"
 import "../assets/css/header.css"
-import  Shop from  "../views/shop"
+import Shop from "../views/shop"
 import Item from "../views/item"
 import Cart from "../views/cart"
 import Login from "../views/login"
 import Checkout from "../views/checkout"
-import Payment from  "../views/Payment"
+import Payment from "../views/Payment"
 import Account from "../views/account"
 import HomeIndex from "../views/homeIndex"
 import ConTactus from "../views/conTactus"
@@ -19,67 +19,68 @@ import Address from '../views/account/address'
 Vue.use(Router)
 
 export default new Router({
-  routes: [
-    {
-      path: '/',
-      name:"Shop",
+  routes: [{
+      path: '/shop',
+      name: "Shop",
       component: Shop
     },
     {
       path: '/welfare',
-      name:"Welfare",
+      name: "Welfare",
       component: Welfare
     },
     {
       path: '/newsList',
-      name:"NewsList",
+      name: "NewsList",
       component: NewsList
     },
     {
       path: '/item',
-      name:"Item",
+      name: "Item",
       component: Item
     },
     {
       path: '/zanIntroduce',
-      name:"ZanIntroduce",
+      name: "ZanIntroduce",
       component: ZanIntroduce
     },
     {
-      path: '/homeIndex',
-      name:"HomeIndex",
-      component: HomeIndex
+      path: '/',
+      name: "HomeIndex",
+      component: HomeIndex,
+      meta: {
+        needLogin: true //需要加校检判断的路由
+      },
     },
     {
       path: '/conTactus',
-      name:"ConTactus",
+      name: "ConTactus",
       component: ConTactus
     },
     {
       path: '/login',
-      name:"Login",
+      name: "Login",
       component: Login
     },
     {
       path: '/cart',
-      name:"Cart",
+      name: "Cart",
       component: Cart
     },
     {
       path: '/checkout',
-      name:"Checkout",
+      name: "Checkout",
       component: Checkout
     },
     {
       path: '/payment',
-      name:"Payment",
+      name: "Payment",
       component: Payment
     },
     {
       path: '/account',
       component: Account,
-      children: [
-        {
+      children: [{
           path: '',
           name: 'Account',
           component: Order

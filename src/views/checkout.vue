@@ -1,6 +1,6 @@
 <template>
   <div id="main">
-    <header-nav></header-nav> 
+    <header-nav></header-nav>
     <div class="content page-order-checkout checkout">
       <div class="js-checkout-address-box">
         <div class="gray-box clear">
@@ -137,6 +137,7 @@
              return;
            }
         })
+        console.log(this.$store.state.receiveInfo)
         //页面创建之前；
       },
       computed:{
@@ -189,6 +190,10 @@
             this.invoice.name = "个人"
           }
           let receiveInfo = this.receiveInfo[this.receiveIndex] //当前被选中的默认的地址栏
+            if(receiveInfo === undefined){
+              this.$message.error("请填写地址")
+              return
+            }
           let iDate = new Date(); //提交订单的日期
           let month = iDate.getMonth() + 1;
           let strDate = iDate.getDate();

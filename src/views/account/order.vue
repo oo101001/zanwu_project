@@ -6,7 +6,7 @@
 				<div class="title columns-title pre-title">
 					<h2>我的订单</h2>
 				</div>
-				<div class="js-list-inner">
+				<div v-if="orderData.length>0" class="js-list-inner">
 					<div class="box-inner order-cart order-list-cart clear" v-for="order,index in orderData">
 						<div class="gray-sub-title cart-title">
 							<span class="date">{{order.iDate}}</span>
@@ -42,11 +42,14 @@
 							<div class="total">¥ {{order.price+order.freight}}.00</div>
 							<div class="status">
 								<router-link :to="{name: 'Payment', query: {orderId:order.orderId}}" class="blue-small-btn js-payment-order" v-if="!order.isPay">现在付款</router-link>
-								<span v-else>已完成</span>
+								<span v-else>未支付</span>
 							</div>
 						</div>
 					</div>
 				</div>
+        <div v-else  class="js-list-inners" style="text-align:center;">
+          暂无订单
+          </div>
 			</div>
 		</div>
   </div>
@@ -351,5 +354,9 @@
 .blue-small-btn:hover{
 	box-shadow: 0 1px 1px #7696DE inset, 0 0 2px #627DCA inset, 0 -2px 3px #5A77C7 inset, 0 0 100px rgba(48,77,147,.4) inset, 0 0 0 1px rgba(0,0,0,.3) inset, 0 1px 3px rgba(0,0,0,.1);
     color: #FFF;
+}
+.js-list-inners{
+  height: 80px;
+  line-height: 80px;
 }
 </style>
